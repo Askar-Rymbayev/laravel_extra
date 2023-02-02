@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="/vendor/bootstrap-5.3.0/css/bootstrap.css">
+@extends('layout')
 
-    <title>Posts</title>
-</head>
-<body>
+@section('header')
+    Post: {{ $post->title }}
+@endsection
 
-<div class="container">
+@section('title')
+    {{ $post->title }}
+@endsection
 
-{!! $post->body !!}
+@section('content')
+    <div>
+        {!! $post->body  !!}
+    </div>
 
     <a href="/">back</a>
-
-</div>
+@endsection

@@ -25,38 +25,42 @@ class Post
 
     public static function all()
     {
-        $files = File::files(resource_path("views/posts/"));
+        $posts = cache()->remember('posts.all', 1, function () {
+//            var_dump(111);
+            $files = File::files(resource_path("views/posts/"));
 
-        $posts = collect($files)
-            ->map(function ($file) {
-                return YamlFrontMatter::parseFile($file);
-            })
-            ->map(function ($doc) {
-                return new Post(
-                    $doc->title,
-                    $doc->descr,
-                    $doc->date,
-                    $doc->slug,
-                    $doc->body(),
-                );
-            });
+            return collect($files)
+                ->map(function ($file) {
+                    return YamlFrontMatter::parseFile($file);
+                })
+                ->map(function ($doc) {
+                    return new Post(
+                        $doc->title,
+                        $doc->descr,
+                        $doc->date,
+                        $doc->slug,
+                        $doc->body(),
+                    );
+                })
+                ->sortByDesc('date');
+        });
 
         return $posts;
     }
 
     public static function find($slug)
     {
-        $posts = static::all();
-        return $posts->firstWhere('slug', $slug);
-//        $path = resource_path("views/posts/{$slug}.html");
-//
-//        if (! file_exists($path)) {
-//            throw new ModelNotFoundException();
-//        }
-//
-//        return cache()->remember("/post/{$slug}", 10, function () use ($path) {
-//            var_dump('file NOT IN cache; INSERTING to cache');
-//            return file_get_contents($path);
-//        });
+        return static::all()->firstWhere('slug', $slug);
+    }
+
+    public static function findOrFail($slug)
+    {
+        $post = static::find($slug);
+
+        if (!$post) {
+            throw new ModelNotFoundException();
+        }
+
+        return $post;
     }
 }

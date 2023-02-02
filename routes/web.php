@@ -20,6 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('/post/{slug}', function ($slug) {
-    $post = Post::find($slug);
-    return view("post", ['post' => $post]);
-})->whereAlphaNumeric('slug');
+    return view("post", ['post' => Post::findOrFail($slug)]);
+});
