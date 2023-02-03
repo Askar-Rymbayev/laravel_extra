@@ -10,7 +10,7 @@
 
 @section('content')
     <div>
-        {!! $post->body  !!}
+        {!! $post->body !!}
     </div>
 
     <a href="/">back</a>
