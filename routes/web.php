@@ -22,3 +22,8 @@ Route::get('/', function () {
 Route::get('/post/{post}', function (Post $post) {
     return view("post", ['post' => $post]);
 });
+
+Route::get('/test', function () {
+    $users = \App\Models\User::with('posts')->get();
+    return view('test', ['users' => $users]);
+});
