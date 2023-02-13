@@ -1,19 +1,15 @@
 @extends('layout')
 
 @section('title')
-    Posts
+    Category Posts
 @endsection
 
 @section('header')
-    Posts
+    Posts of {{ $category->title }}
 @endsection
 
 @section('content')
-    <div>
-        <a href="/posts/create">Create New Post</a>
-    </div>
-
-    @foreach ($posts as $post)
+    @foreach ($category->posts as $post)
         <article class="mt-3 {{ $post->trashed() ? 'bg-danger' : '' }}">
             <h1><a href="/posts/{{ $post->slug }}">{{ $post->title }}</a></h1>
             <div>{{ $post->descr }}</div>

@@ -10,6 +10,11 @@
 
 @section('content')
     <div>
+        Post by <a href="/user/{{ $post->user->id }}/posts">{{ $post->user->name }}</a><br>
+        in <a href="/category/{{ $post->category->slug }}/posts">{{ $post->category->title }}</a>
+    </div>
+
+    <div>
         {!! $post->body !!}
     </div>
 

@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger('author_id');
-            $table->softDeletes();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('slug')->unique();
+            $table->string('title');
+            $table->timestamps();
         });
     }
 
@@ -26,9 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('author_id');
-            $table->dropSoftDeletes();
-        });
+        Schema::dropIfExists('categories');
     }
 };
