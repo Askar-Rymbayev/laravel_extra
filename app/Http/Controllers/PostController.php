@@ -32,7 +32,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $post = Post::create(array_merge($request->all(), ['author_id' => 1]));
+        $validated = $request->validate([
+            'slug' => 'required|regex:/^[a-zA-Z][a-zA-Z0-9\-]+$/i|unique:posts|max:80',
+            'title' => 'required|max:255',
+            'descr' => 'required|max:1000',
+            'body' => 'required',
+        ]);
+
+        $post = Post::create(array_merge($validated, ['user_id' => 1, 'category_id' => 1]));
 
         return redirect('/posts/' . $post->slug);
     }
@@ -65,7 +72,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post->fill($request->all());
+        $validated = $request->validate([
+            'slug' => 'required|regex:/^[a-zA-Z][a-zA-Z0-9\-]+$/i|unique:posts|max:80',
+            'title' => 'required|max:255',
+            'descr' => 'required|max:1000',
+            'body' => 'required',
+        ]);
+
+        $post->fill($validated);
         $post->save();
 
         return redirect('/posts/' . $post->slug);

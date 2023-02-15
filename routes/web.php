@@ -20,8 +20,6 @@ Route::resource('posts', PostController::class)->withTrashed();
 Route::get('/posts/{post}/restore', [PostController::class, 'restore'])->withTrashed()->name('posts.restore');
 
 Route::get('/category/{category:slug}/posts', function (\App\Models\Category $category) {
-    $user = \App\Models\User::find(1);
-    dd($user);
     return view("categories.posts", ['category' => $category]);
 });
 

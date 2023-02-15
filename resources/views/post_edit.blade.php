@@ -15,6 +15,7 @@
         <div class="mb-3">
             <label class="form-label">Slug</label>
             <input type="text" name="slug" value="{{ $post->slug }}" class="form-control">
+            <p>{{ old('slug') }}</p>
         </div>
 
         <div class="mb-3">
