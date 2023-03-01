@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('descr');
             $table->text('body');
-            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
