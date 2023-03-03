@@ -19,3 +19,11 @@ Route::get('/category/{category:slug}/posts', function (\App\Models\Category $ca
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/test', function () {
+    return view('test');
+});
+Route::post('/test', function (Request $request) {
+    $path = $request->file('file')->store('products');
+    return $path;
+});
