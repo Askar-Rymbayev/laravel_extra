@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->string('ingredients');
             $table->double('price');
-            $table->string('');
-            $table->timestamps();
+            $table->integer('category_id');
+            $table->string('image');
         });
     }
 

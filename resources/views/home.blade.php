@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
@@ -19,12 +20,10 @@
                     <li><a href="#events">Events</a></li>
                     <li><a href="#chefs">Chefs</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li class="dropdown"><a href="#"><span>Drop Down</span> <i
-                                class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
-                                        class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                                 <ul>
                                     <li><a href="#">Deep Drop Down 1</a></li>
                                     <li><a href="#">Deep Drop Down 2</a></li>
@@ -42,8 +41,7 @@
                 </ul>
             </nav><!-- .navbar -->
 
-            <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
-            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <a class="btn-book-a-table" href="#book-a-table">Book a Table</a> <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
         </div>
@@ -75,167 +73,171 @@
 
     <main id="main">
 
-        <!-- ======= About Section ======= -->
-        <section id="about" class="about">
-            <div class="container" data-aos="fade-up">
 
-                <div class="section-header">
-                    <h2>About Us</h2>
-                    <p>Learn More <span>About Us</span></p>
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>About Us</h2>
+                <p>Learn More <span>About Us</span></p>
+            </div>
+
+            <div class="row gy-4">
+                <div class="col-lg-7 position-relative about-img"
+                     style="background-image: url(assets/img/about.jpg) ;"
+                     data-aos="fade-up" data-aos-delay="150">
+                    <div class="call-us position-absolute">
+                        <h4>Book a Table</h4>
+                        <p>+1 5589 55488 55</p>
+                    </div>
                 </div>
+                <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+                    <div class="content ps-0 ps-lg-5">
+                        <p class="fst-italic">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut
+                            labore et dolore
+                            magna aliqua.
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat.
+                            </li>
+                            <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate
+                                velit.
+                            </li>
+                            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
+                                storacalaperda
+                                mastiro dolore eu fugiat nulla pariatur.
+                            </li>
+                        </ul>
+                        <p>
+                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident
+                        </p>
 
-                <div class="row gy-4">
-                    <div class="col-lg-7 position-relative about-img"
-                         style="background-image: url(assets/img/about.jpg) ;"
-                         data-aos="fade-up" data-aos-delay="150">
-                        <div class="call-us position-absolute">
-                            <h4>Book a Table</h4>
-                            <p>+1 5589 55488 55</p>
+                        <div class="position-relative mt-4">
+                            <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
+                            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
                         </div>
                     </div>
-                    <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-                        <div class="content ps-0 ps-lg-5">
-                            <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore
-                                magna aliqua.
-                            </p>
-                            <ul>
-                                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.
-                                </li>
-                                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate
-                                    velit.
-                                </li>
-                                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                    storacalaperda
-                                    mastiro dolore eu fugiat nulla pariatur.
-                                </li>
-                            </ul>
-                            <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident
-                            </p>
+                </div>
+            </div>
 
-                            <div class="position-relative mt-4">
-                                <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
-                                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+        </div>
+    </section><!-- End About Section -->
+
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-box">
+                        <h3>Why Choose Yummy?</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut
+                            labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                            Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus
+                            optio ad corporis.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div><!-- End Why Box -->
+
+                <div class="col-lg-8 d-flex align-items-center">
+                    <div class="row gy-4">
+
+                        <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                <i class="bi bi-clipboard-data"></i>
+                                <h4>Corporis voluptates officia eiusmod</h4>
+                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut
+                                    aliquip</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </div><!-- End Icon Box -->
 
-            </div>
-        </section><!-- End About Section -->
-
-        <!-- ======= Why Us Section ======= -->
-        <section id="why-us" class="why-us section-bg">
-            <div class="container" data-aos="fade-up">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="why-box">
-                            <h3>Why Choose Yummy?</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus
-                                optio ad corporis.
-                            </p>
-                            <div class="text-center">
-                                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                        <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                <i class="bi bi-gem"></i>
+                                <h4>Ullamco laboris ladore pan</h4>
+                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                    deserunt</p>
                             </div>
-                        </div>
-                    </div><!-- End Why Box -->
+                        </div><!-- End Icon Box -->
 
-                    <div class="col-lg-8 d-flex align-items-center">
-                        <div class="row gy-4">
+                        <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                <i class="bi bi-inboxes"></i>
+                                <h4>Labore consequatur incidid dolore</h4>
+                                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis
+                                    facere</p>
+                            </div>
+                        </div><!-- End Icon Box -->
 
-                            <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
-                                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                                    <i class="bi bi-clipboard-data"></i>
-                                    <h4>Corporis voluptates officia eiusmod</h4>
-                                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut
-                                        aliquip</p>
-                                </div>
-                            </div><!-- End Icon Box -->
-
-                            <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
-                                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                                    <i class="bi bi-gem"></i>
-                                    <h4>Ullamco laboris ladore pan</h4>
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt</p>
-                                </div>
-                            </div><!-- End Icon Box -->
-
-                            <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
-                                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                                    <i class="bi bi-inboxes"></i>
-                                    <h4>Labore consequatur incidid dolore</h4>
-                                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis
-                                        facere</p>
-                                </div>
-                            </div><!-- End Icon Box -->
-
-                        </div>
                     </div>
-
                 </div>
 
             </div>
-        </section><!-- End Why Us Section -->
 
-        <!-- ======= Stats Counter Section ======= -->
-        <section id="stats-counter" class="stats-counter">
-            <div class="container" data-aos="zoom-out">
+        </div>
+    </section><!-- End Why Us Section -->
 
-                <div class="row gy-4">
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                              class="purecounter"></span>
-                            <p>Clients</p>
-                        </div>
-                    </div><!-- End Stats Item -->
+    <!-- ======= Stats Counter Section ======= -->
+    <section id="stats-counter" class="stats-counter">
+        <div class="container" data-aos="zoom-out">
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                              class="purecounter"></span>
-                            <p>Projects</p>
-                        </div>
-                    </div><!-- End Stats Item -->
+            <div class="row gy-4">
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
-                              class="purecounter"></span>
-                            <p>Hours Of Support</p>
-                        </div>
-                    </div><!-- End Stats Item -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                          class="purecounter"></span>
+                        <p>Clients</p>
+                    </div>
+                </div><!-- End Stats Item -->
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
-                              class="purecounter"></span>
-                            <p>Workers</p>
-                        </div>
-                    </div><!-- End Stats Item -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                          class="purecounter"></span>
+                        <p>Projects</p>
+                    </div>
+                </div><!-- End Stats Item -->
 
-                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
+                          class="purecounter"></span>
+                        <p>Hours Of Support</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
+                          class="purecounter"></span>
+                        <p>Workers</p>
+                    </div>
+                </div><!-- End Stats Item -->
 
             </div>
-        </section><!-- End Stats Counter Section -->
 
-        <!-- ======= Menu Section ======= -->
+        </div>
+    </section><!-- End Stats Counter Section -->
+
+
+    <!-- ======= Menu Section ======= -->
         <section id="menu" class="menu">
             <div class="container" data-aos="fade-up">
 
@@ -246,374 +248,48 @@
 
                 <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
 
-                    <li class="nav-item">
-                        <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
-                            <h4>Starters</h4>
-                        </a>
-                    </li><!-- End tab nav item -->
-
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-                            <h4>Breakfast</h4>
-                        </a><!-- End tab nav item -->
-
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-                            <h4>Lunch</h4>
-                        </a>
-                    </li><!-- End tab nav item -->
-
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-                            <h4>Dinner</h4>
-                        </a>
-                    </li><!-- End tab nav item -->
+                    @foreach($categories as $category)
+                        <li class="nav-item">
+                            <a class="nav-link {{ $loop->first ? 'active' : '' }} show" data-bs-toggle="tab" data-bs-target="#{{ $category->slug }}">
+                                <h4>{{ $category->title }}</h4>
+                            </a>
+                        </li>
+                    @endforeach
 
                 </ul>
 
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
 
-                    <div class="tab-pane fade active show" id="menu-starters">
+                    @foreach($categories as $category)
+                        <div class="tab-pane fade {{ $loop->first ? 'active' : '' }} show" id="{{ $category->slug }}">
 
-                        <div class="tab-header text-center">
-                            <p>Menu</p>
-                            <h3>Starters</h3>
+                            <div class="tab-header text-center">
+                                <p>Menu</p>
+                                <h3>{{ $category->title }}</h3>
+                            </div>
+
+                            <div class="row gy-5">
+
+                                @foreach($category->products as $product)
+                                    <div class="col-lg-4 menu-item">
+                                        <a href="{{ $product->image }}" class="glightbox"><img src="{{ $product->image }}" class="menu-img img-fluid" alt=""></a>
+                                        <h4>{{ $product->title }}</h4>
+                                        <p class="ingredients">
+                                            {{ $product->ingredients }}</p>
+                                        <p class="price">
+                                            {{ $product->price }} тг.</p>
+                                    </div>
+                                @endforeach
+
+                            </div>
                         </div>
-
-                        <div class="row gy-5">
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Magnam Tiste</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $5.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Aut Luia</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $14.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Est Eligendi</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $8.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Eos Luibusdam</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $12.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Eos Luibusdam</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $12.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Laboriosam Direva</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $9.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                        </div>
-                    </div><!-- End Starter Menu Content -->
-
-                    <div class="tab-pane fade" id="menu-breakfast">
-
-                        <div class="tab-header text-center">
-                            <p>Menu</p>
-                            <h3>Breakfast</h3>
-                        </div>
-
-                        <div class="row gy-5">
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Magnam Tiste</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $5.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Aut Luia</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $14.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Est Eligendi</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $8.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Eos Luibusdam</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $12.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Eos Luibusdam</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $12.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Laboriosam Direva</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $9.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                        </div>
-                    </div><!-- End Breakfast Menu Content -->
-
-                    <div class="tab-pane fade" id="menu-lunch">
-
-                        <div class="tab-header text-center">
-                            <p>Menu</p>
-                            <h3>Lunch</h3>
-                        </div>
-
-                        <div class="row gy-5">
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Magnam Tiste</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $5.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Aut Luia</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $14.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Est Eligendi</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $8.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Eos Luibusdam</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $12.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Eos Luibusdam</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $12.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Laboriosam Direva</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $9.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                        </div>
-                    </div><!-- End Lunch Menu Content -->
-
-                    <div class="tab-pane fade" id="menu-dinner">
-
-                        <div class="tab-header text-center">
-                            <p>Menu</p>
-                            <h3>Dinner</h3>
-                        </div>
-
-                        <div class="row gy-5">
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Magnam Tiste</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $5.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Aut Luia</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $14.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Est Eligendi</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $8.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Eos Luibusdam</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $12.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Eos Luibusdam</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $12.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                            <div class="col-lg-4 menu-item">
-                                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img
-                                        src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                                <h4>Laboriosam Direva</h4>
-                                <p class="ingredients">
-                                    Lorem, deren, trataro, filede, nerada
-                                </p>
-                                <p class="price">
-                                    $9.95
-                                </p>
-                            </div><!-- Menu Item -->
-
-                        </div>
-                    </div><!-- End Dinner Menu Content -->
+                    @endforeach
 
                 </div>
 
             </div>
         </section><!-- End Menu Section -->
-
+        {{--
         <!-- ======= Testimonials Section ======= -->
         <section id="testimonials" class="testimonials section-bg">
             <div class="container" data-aos="fade-up">
@@ -1095,7 +771,7 @@
 
             </div>
         </section><!-- End Contact Section -->
-
+        --}}
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
@@ -1108,8 +784,7 @@
                     <div>
                         <h4>Address</h4>
                         <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022 - US<br>
+                            A108 Adam Street <br> New York, NY 535022 - US<br>
                         </p>
                     </div>
 
@@ -1120,8 +795,7 @@
                     <div>
                         <h4>Reservations</h4>
                         <p>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            <strong>Phone:</strong> +1 5589 55488 55<br> <strong>Email:</strong> info@example.com<br>
                         </p>
                     </div>
                 </div>
@@ -1131,18 +805,14 @@
                     <div>
                         <h4>Opening Hours</h4>
                         <p>
-                            <strong>Mon-Sat: 11AM</strong> - 23PM<br>
-                            Sunday: Closed
-                        </p>
+                            <strong>Mon-Sat: 11AM</strong> - 23PM<br> Sunday: Closed </p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Follow Us</h4>
                     <div class="social-links d-flex">
-                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a> <a href="#" class="facebook"><i class="bi bi-facebook"></i></a> <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
                         <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
@@ -1158,8 +828,8 @@
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->Designed by
+                <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
         </div>
 

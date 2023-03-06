@@ -9,8 +9,15 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function posts()
+    public $timestamps = false;
+
+//    public function posts()
+//    {
+//        return $this->hasMany(Post::class);
+//    }
+
+    public function products()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Product::class);
     }
 }
