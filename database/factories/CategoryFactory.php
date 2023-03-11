@@ -17,7 +17,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'slug' => fake()->unique()->lexify('my-???????-category'),
+//            'slug' => fake()->unique()->lexify('my-???????-category'),
             'title' => fake()->unique()->sentence(1),
         ];
     }

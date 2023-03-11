@@ -11,13 +11,13 @@ class Category extends Model
 
     public $timestamps = false;
 
-//    public function posts()
-//    {
-//        return $this->hasMany(Post::class);
-//    }
-
-    public function products()
+    public function subcategories()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id', 'id');
     }
 }

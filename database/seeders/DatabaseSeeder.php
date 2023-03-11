@@ -17,11 +17,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $users = User::factory()
-            ->count(3)
-            ->create();
+//        $users = User::factory()
+//            ->count(3)
+//            ->create();
 
-        $categories = Category::factory()->count(8)->create();
+        $categories = Category::factory()->count(4)->create();
+        $categories->map(function ($category) {
+            Category::factory()->count(4)->create([
+                'parent_id' => $category->id
+            ]);
+        });
+
 
 //        $users->map(function ($user) use ($categories) {
 //            $categories->map(function ($category) use ($user) {
@@ -32,10 +38,10 @@ class DatabaseSeeder extends Seeder
 //            });
 //        });
 
-        $categories->map(function ($category) {
-            Product::factory()->count(6)->create([
-                'category_id' => $category->id,
-            ]);
-        });
+//        $categories->map(function ($category) {
+//            Product::factory()->count(6)->create([
+//                'category_id' => $category->id,
+//            ]);
+//        });
     }
 }
