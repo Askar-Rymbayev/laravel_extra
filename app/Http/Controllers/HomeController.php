@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -24,7 +25,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::with('products')->get();
+        $categories = Category::all();
+
         return view('home', ['categories' => $categories]);
+    }
+
+    public function category($id)
+    {
+        $categories = Category::all();
+        $products = Product::where('category_id', $id)->get();
+
+        return view('category', [
+            'categories' => $categories,
+            'products' => $products,
+        ]);
     }
 }

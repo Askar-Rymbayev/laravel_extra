@@ -23,7 +23,13 @@
 @endsection
 
 @section('content')
-
+    <ul>
+        @foreach($products as $product)
+            <li>
+                {{ $product->id }} {{ $product->title }} {{ $product->price }} {{ $product->ingredients }}
+            </li>
+        @endforeach
+    </ul>
 @endsection
 
 

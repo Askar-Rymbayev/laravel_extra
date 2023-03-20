@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
-            $table->string('ingredients');
             $table->double('price');
-            $table->integer('category_id');
             $table->string('image');
+            $table->string('ingredients')->nullable();
+            $table->integer('category_id');
+            $table->enum('type', ['pizza', 'rolls', 'sushi', 'soup', 'wok', 'additional']);
+            $table->string('custom_field')->nullable();
         });
     }
 
