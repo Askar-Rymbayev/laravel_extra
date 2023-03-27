@@ -25,17 +25,28 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::with('subcategories')->whereNull('parent_id')->get();
 
         return view('home', ['categories' => $categories]);
     }
 
     public function category($id)
     {
-        $categories = Category::all();
-        $products = Product::where('category_id', $id)->get();
+        $categories = Category::with('subcategories')->whereNull('parent_id')->get();
+
+        $ids = [];
+        $parentCategory = $categories->where('id', $id)->first();
+        if ($parentCategory) {
+            $ids[] = $parentCategory->id;
+            foreach ($parentCategory->subcategories as $subcategory) {
+                $ids[] = $subcategory->id;
+            }
+        }
+
+        $products = Product::whereIn('category_id', $ids)->get();
 
         return view('category', [
+            'id' => $id,
             'categories' => $categories,
             'products' => $products,
         ]);

@@ -7,12 +7,15 @@
                 $subCategories = $category->subcategories;
             @endphp
             <li class="nav-item {{ !is_null($subCategories) ? 'dropdown' : '' }}">
-                <a class="nav-link {{ !is_null($subCategories) ? 'dropdown-toggle' : '' }}" aria-current="page" href="/category/{{ $category->id }}">{{ $category->title }}</a>
+                <a class="nav-link {{ !is_null($subCategories) ? 'dropdown-toggle' : '' }}" aria-current="page" href="/category/{{ $category->id }}" {{ !is_null($subCategories) ? 'role=button data-bs-toggle=dropdown aria-expanded=false' : '' }}>{{ $category->title }}</a>
                 @if(!is_null($subCategories))
                     <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="/category/{{ $category->id }}">Все</a>
+                        </li>
                         @foreach($subCategories as $subCategory)
                             <li>
-                                <a class="dropdown-item" href="/category/{{ $category->id }}">{{ $subCategory->title }}</a>
+                                <a class="dropdown-item" href="/category/{{ $subCategory->id }}">{{ $subCategory->title }}</a>
                             </li>
                         @endforeach
                     </ul>
