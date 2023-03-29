@@ -14,13 +14,8 @@
 </head>
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    @yield('categories')
-                </div>
-            </div>
-        </nav>
+        @yield('top_menu')
+
         @yield('content')
     </div>
 </body>

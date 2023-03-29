@@ -34,11 +34,10 @@ class HomeController extends Controller
     {
         $categories = Category::with('subcategories')->whereNull('parent_id')->get();
 
-        $ids = [];
-        $parentCategory = $categories->where('id', $id)->first();
-        if ($parentCategory) {
-            $ids[] = $parentCategory->id;
-            foreach ($parentCategory->subcategories as $subcategory) {
+        $category = Category::findOrFail($id);
+        $ids[] = $category->id;
+        if (!is_null($category->subcategories)) {
+            foreach ($category->subcategories as $subcategory) {
                 $ids[] = $subcategory->id;
             }
         }
