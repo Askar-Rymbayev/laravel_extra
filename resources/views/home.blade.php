@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <x-products.products-list :$products/>
+    <p>Landing page</p>
 @endsection
 
 

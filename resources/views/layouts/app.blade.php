@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,6 +15,10 @@
 <body>
     <div class="container">
         @yield('top_menu')
+
+        @if(Route::currentRouteName() != 'home')
+            @yield('breadcrumb')
+        @endif
 
         @yield('content')
     </div>

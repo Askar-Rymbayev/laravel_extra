@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\Product;
 
@@ -44,10 +45,23 @@ class HomeController extends Controller
 
         $products = Product::whereIn('category_id', $ids)->get();
 
+        $breadcrumb = [
+            [
+                'url' => route('home'),
+                'title' => 'Главная'
+            ],
+            [
+                'url' => false,
+                'title' => $category->title
+            ]
+        ];
+
         return view('category', [
             'id' => $id,
+            'category' => $category,
             'categories' => $categories,
             'products' => $products,
+            'breadcrumb' => $breadcrumb,
         ]);
     }
 }

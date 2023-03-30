@@ -1,6 +1,6 @@
 <div class="row">
     @foreach($products as $product)
-        <div class="col-3">
+        <div class="col-3 mb-3">
             @switch($product->type)
                 @case('pizza')
                     <x-products.pizza :$product/>
