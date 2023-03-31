@@ -19,7 +19,7 @@ class ProductFactory extends Factory
         return [
             'title' => fake()->unique()->sentence(3),
             'price' => fake()->randomFloat(2, 1000, 10000),
-            'image' => fake()->imageUrl(610, 610, 'product', true, 'menu item', true, 'png'),
+            'image' => fake()->imageUrl(200, 150, null, true, null, false, 'png'),
             'ingredients' => fake()->sentence(6),
         ];
     }

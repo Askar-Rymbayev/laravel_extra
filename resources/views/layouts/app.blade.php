@@ -13,7 +13,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div class="container">
+    <div class="container-lg">
         @yield('top_menu')
 
         @if(Route::currentRouteName() != 'home')

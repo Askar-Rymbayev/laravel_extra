@@ -21,44 +21,50 @@ class DatabaseSeeder extends Seeder
             ->count(3)
             ->create();
 
-        $categoryTypes = ['pizza', 'rolls', 'sushi', 'soup', 'wok', 'additional'];
+        $categoryTypes = [
+            'Пицца' => 'pizza',
+            'Роллы' => 'rolls',
+            'Суши' => 'sushi',
+            'Супы' => 'soup',
+            'Wok' => 'wok',
+            'Дополнительно' => 'additional'];
         $categories = [];
-        foreach ($categoryTypes as $categoryType) {
+        foreach ($categoryTypes as $categoryType => $value) {
             $categories[] = Category::factory()->create([
                 'title' => $categoryType
             ]);
         }
         $categories = collect($categories);
 
-        $categories->map(function ($category) {
+        $categories->map(function ($category) use ($categoryTypes) {
             $subCategories = Category::factory()->count(4)->create([
                 'parent_id' => $category->id
             ]);
 
             $productType = $category->title;
 
-            $subCategories->map(function ($subCategory) use ($productType) {
+            $subCategories->map(function ($subCategory) use ($productType, $categoryTypes) {
                 $customField = null;
                 $pizza = ['small', 'medium', 'big'];
                 $rolls = [8, 10];
-                $meat = ['chicken', 'beaf', 'turkey'];
+                $meat = ['chicken', 'beef', 'turkey'];
                 switch ($productType)
                 {
-                    case 'pizza':
+                    case 'Пицца':
                         $customField = $pizza[rand(0, 2)];
                         break;
-                    case 'rolls':
+                    case 'Роллы':
                         $customField = $rolls[rand(0, 1)];
                         break;
-                    case 'soup':
-                    case 'wok':
+                    case 'Супы':
+                    case 'Wok':
                         $customField = $meat[rand(0, 2)];
                         break;
                 }
 
                 Product::factory()->count(4)->create([
                     'category_id' => $subCategory->id,
-                    'type' => $productType,
+                    'type' => $categoryTypes[$productType],
                     'custom_field' => $customField,
                 ]);
             });

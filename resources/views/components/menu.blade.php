@@ -28,10 +28,10 @@
                 @endforeach
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Доставка</a>
+                    <a class="nav-link" aria-current="page" href="#">Доставка</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Контакты</a>
+                    <a class="nav-link" aria-current="page" href="#">Контакты</a>
                 </li>
             </ul>
         </div>
