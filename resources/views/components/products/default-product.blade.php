@@ -8,6 +8,5 @@
         {{ $product->price }}
 
         <a class="btn btn-outline-secondary btn-sm" href="{{ route('addToCart', ['id'=>$product->id]) }}" role="button">Добавить</a>
-
     </div>
 </div>

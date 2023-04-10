@@ -10,6 +10,9 @@ class Product extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $casts = [
+        'fields' => 'array',
+    ];
 
     public function category()
     {

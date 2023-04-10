@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('ingredients')->nullable();
             $table->integer('category_id');
             $table->enum('type', ['pizza', 'rolls', 'sushi', 'soup', 'wok', 'additional']);
-            $table->string('custom_field')->nullable();
+            $table->json('fields')->nullable();
         });
     }
 

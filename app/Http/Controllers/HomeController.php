@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\Product;
+use function PHPUnit\Framework\isNull;
 
 class HomeController extends Controller
 {
@@ -44,6 +45,15 @@ class HomeController extends Controller
         }
 
         $products = Product::whereIn('category_id', $ids)->get();
+
+        echo '<pre>';
+        foreach ($products as $product) {
+            if (!is_null($product->fields)) {
+                print_r($product->fields);
+            }
+        }
+        echo '</pre>';
+        dd('');
 
         $breadcrumb = [
             [

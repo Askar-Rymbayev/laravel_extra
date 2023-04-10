@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('top_menu')
-    <x-menu :$categories/>
+    <x-menu :$categories :id="0"/>
 @endsection
 
 @section('content')
