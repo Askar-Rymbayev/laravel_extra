@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $categories = Category::with('subcategories')->whereNull('parent_id')->get();
 
-        return view('home', ['categories' => $categories]);
+        return view('home', compact('categories'));
     }
 
     public function category($id)
@@ -46,14 +46,17 @@ class HomeController extends Controller
 
         $products = Product::whereIn('category_id', $ids)->get();
 
-        echo '<pre>';
-        foreach ($products as $product) {
-            if (!is_null($product->fields)) {
-                print_r($product->fields);
-            }
-        }
-        echo '</pre>';
-        dd('');
+//        echo '<pre>';
+//        /** @var \App\Models\Product $product */
+//        foreach ($products as $product) {
+//            print_r($product->getAttributes());
+//            if (!is_null($product->fields)) {
+//                print_r($product->fields);
+//            }
+//            print('<hr>');
+//        }
+//        echo '</pre>';
+//        dd('');
 
         $breadcrumb = [
             [
@@ -66,12 +69,6 @@ class HomeController extends Controller
             ]
         ];
 
-        return view('category', [
-            'id' => $id,
-            'category' => $category,
-            'categories' => $categories,
-            'products' => $products,
-            'breadcrumb' => $breadcrumb,
-        ]);
+        return view('category', compact('id', 'category', 'categories', 'products', 'breadcrumb'));
     }
 }
