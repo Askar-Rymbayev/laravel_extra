@@ -10,93 +10,123 @@ class CartController extends Controller
 {
     public function addToCart(Request $request)
     {
-        dd($request->all());
-
         $product = Product::findOrFail($request->id);
 
-        $validateRules = $this->createValidateRules($product);
+        $validateRules = $this->createValidateRules($request, $product);
 
-        $validated = $request->validate($validateRules);
+        dd($request->all());
 
-        $customField = $request->get('custom_field');
+        $fields = $request->validate($validateRules);
 
-        $this->storeProductInCart($product, $customField);
+        $this->storeProductInCart($request, $product, $fields);
 
         return back();
     }
 
-    public function storeProductInCart($product, $customField)
+    public function storeProductInCart(Request $request, $product, $fields)
     {
-        $cart = session('cart');
-        $id = $product->id;
-
-        if (is_null($customField)) {
-            switch ($product->type) {
-                case 'pizza':
-                    $customField = 30;
-                    break;
-            }
-        }
-
-        if (key_exists($id, $cart)) {
-            foreach ($cart[$id] as $row) {
-
-            }
-        }
-
-        session();
-
-
         $cart = [];
+        if (session()->has('cart')) {
+            $cart = session('cart');
+        }
 
-        $cart[$id] = [
-            [
-                'count' => 1,
-                'type' => 'pizza',
-                'custom_field' => 'small',//medium, 30,35,40
+        if (!key_exists($product->id, $cart)) {
+            $fields['count'] = 1;
+            $cart[$product->id][] = $fields;
+        } else {
+            foreach ($cart[$product->id] as $rows) {
+                foreach ($rows as $row) {
+                    foreach ($fields as $field) {
+
+                    }
+                }
+            }
+        }
+
+        dd($cart);
+
+        /*
+          "size" => "30"
+          "fillings" => "0"
+          "dough" => "2"
+        */
+
+        $cart = [
+            1 => [
+                [
+                    'size' => 25,
+                    'dough' => 1,
+                    'fillings' => [
+                        0, 1
+                    ],
+                    'count' => 3,
+                ],
+                [
+                    'size' => 30,
+                    'dough' => 1,
+                    'sideboard' => 1,
+                    'fillings' => [
+                        1
+                    ],
+                    'count' => 2,
+                ],
+                [
+                    'size' => 30,
+                    'sideboard' => 1,
+                    'dough' => 2,
+                    'fillings' => [
+                        0
+                    ],
+                    'count' => 1,
+                ],
             ],
-            [
-                'count' => 1,
-                'type' => 'pizza',
-                'custom_field' => 'medium',//medium, 30,35,40
+            2 => [
+
             ]
         ];
 
-        $cart[$id] = [
-            'type' => 'wok-soup',
-            'custom_field' => 'chicken',//medium, 30,35,40
-        ];
+        session(['cart' => $cart]);
     }
 
-    private function createValidateRules($product)
+    private function createValidateRules(Request $request, $product)
     {
         $validateRules = [];
-        /*
-        "sizes":
-         "25": 2751, "30": 2864, "35": 3019, "40": 4134,
-        "fillings":
-            {"price": 350, "title": "Моцарелла", "exists": 1}
-            {"price": 250, "title": "Острый халапенью", "exists": 1}]
-        "sideboard": 1,
-        "slim_dough": 1
-        */
         foreach ($product->fields as $field => $row) {
-            switch ($field) {
-                case 'sizes':
-                    $validateRules['size'][] = 'required';
-                    $validateRules['size'][] = Rule::in(array_keys($row));
-                    break;
-                case 'slim_dough':
-                    break;
-                case 'sideboard':
-                    if ($row == 0) {
-                        $validateRules['sideboard'][] = 'nullable';
-                    } else {
-                        $validateRules['sideboard'][] = 'boolean';
+            switch ($product->type) {
+                case 'pizza':
+                    switch ($field) {
+                        case 'sizes':
+                            $validateRules['size'][] = 'required';
+                            $validateRules['size'][] = Rule::in(array_keys($row));
+                            break;
+                        case 'slim_dough':
+                            $validateRules['dough'][] = 'required';
+                            if ($row == 0) {
+                                $validateRules['dough'][] = Rule::in([1]);
+                            } elseif ($request->size == 25) {
+                                $validateRules['dough'][] = Rule::in([1]);
+                            } else {
+                                $validateRules['dough'][] = Rule::in([1, 2]);
+                            }
+                            break;
+                        case 'sideboard':
+                            if ($row == 0) {
+                                $validateRules['sideboard'][] = 'exclude';
+                            } else {
+                                $validateRules['sideboard'][] = Rule::excludeIf(function () use ($request) {
+                                    return $request->size == 25;
+                                });
+                                $validateRules['sideboard'][] = 'boolean';
+                            }
+                            break;
+                        case 'fillings':
+                            $validateRules['fillings'][] = Rule::in(array_keys($row));
+                            break;
                     }
                     break;
-                case 'fillings':
-                    $validateRules['fillings'][] = Rule::in(array_keys($row));
+                case 'soup':
+                case 'wok':
+                    $validateRules['type'][] = Rule::in(array_keys($row));
                     break;
             }
         }

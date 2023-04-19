@@ -78,7 +78,6 @@ class DatabaseSeeder extends Seeder
                                 'sizes' => $sizes,
                                 'slim_dough' => $slim_dough,
                                 'sideboard' => $sideboard,
-                                'fillings' => [],
                             ];
 
                             foreach ($fillings as $item) {
@@ -133,9 +132,7 @@ class DatabaseSeeder extends Seeder
                                 ],
                             ];
 
-                            $customField = [
-                                'type' => null
-                            ];
+                            $customField = [];
                             foreach ($types as $item) {
                                 if ($item['exists']) {
                                     $customField['type'][] = $item;
@@ -165,9 +162,7 @@ class DatabaseSeeder extends Seeder
                                     'price' => 500,
                                 ],
                             ];
-                            $customField = [
-                                'type' => null
-                            ];
+                            $customField = [];
                             foreach ($types as $item) {
                                 if ($item['exists']) {
                                     $customField['type'][] = $item;

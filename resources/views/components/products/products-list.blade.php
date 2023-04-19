@@ -1,11 +1,12 @@
 <div class="row">
     <div class="col">
         @foreach($errors->all() as $error)
-            <p>{{ $error }}</p>
+            <div class="alert alert-danger" role="alert">
+                {{ $error }}
+            </div>
         @endforeach
     </div>
 </div>
-
 
 <div class="row">
     @foreach($products as $product)

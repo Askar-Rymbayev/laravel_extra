@@ -35,7 +35,7 @@
         @if(key_exists('fillings', $product->fields) && !empty($product->fields['fillings']))
             @foreach($product->fields['fillings'] as $index => $row)
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="fillings" value="{{ $index }}" role="switch" id="fillings_{{ $index }}_{{ $product->id }}">
+                    <input class="form-check-input" type="checkbox" name="fillings[]" value="{{ $index }}" role="switch" id="fillings_{{ $index }}_{{ $product->id }}">
                     <label class="form-check-label" for="fillings_{{ $index }}_{{ $product->id }}">{{ $row['title'] }} - {{ $row['price'] }} тг.</label>
                 </div>
             @endforeach
