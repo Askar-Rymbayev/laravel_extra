@@ -14,8 +14,6 @@ class CartController extends Controller
 
         $validateRules = $this->createValidateRules($request, $product);
 
-        dd($request->all());
-
         $fields = $request->validate($validateRules);
 
         $this->storeProductInCart($request, $product, $fields);
@@ -35,55 +33,19 @@ class CartController extends Controller
             $cart[$product->id][] = $fields;
         } else {
             foreach ($cart[$product->id] as $rows) {
-                foreach ($rows as $row) {
-                    foreach ($fields as $field) {
-
+                $result = array_udiff_assoc($fields, $rows, function ($a, $b) {
+                    if ($a == $b) {
+                        return 0;
                     }
+                    return ($a > $b) ? 1 : -1;
+                });
+                if (!empty($result)) {
                 }
             }
         }
 
-        dd($cart);
-
-        /*
-          "size" => "30"
-          "fillings" => "0"
-          "dough" => "2"
-        */
-
-        $cart = [
-            1 => [
-                [
-                    'size' => 25,
-                    'dough' => 1,
-                    'fillings' => [
-                        0, 1
-                    ],
-                    'count' => 3,
-                ],
-                [
-                    'size' => 30,
-                    'dough' => 1,
-                    'sideboard' => 1,
-                    'fillings' => [
-                        1
-                    ],
-                    'count' => 2,
-                ],
-                [
-                    'size' => 30,
-                    'sideboard' => 1,
-                    'dough' => 2,
-                    'fillings' => [
-                        0
-                    ],
-                    'count' => 1,
-                ],
-            ],
-            2 => [
-
-            ]
-        ];
+        // что здесь в логике есть проблема
+        // в след уроке объясню в чём проблема
 
         session(['cart' => $cart]);
     }
@@ -120,7 +82,8 @@ class CartController extends Controller
                             }
                             break;
                         case 'fillings':
-                            $validateRules['fillings'][] = Rule::in(array_keys($row));
+                            $validateRules['fillings'][] = 'array';
+                            $validateRules['fillings.*'][] = Rule::in(array_keys($row));
                             break;
                     }
                     break;

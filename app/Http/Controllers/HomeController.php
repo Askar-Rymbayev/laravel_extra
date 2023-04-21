@@ -69,6 +69,8 @@ class HomeController extends Controller
             ]
         ];
 
-        return view('category', compact('id', 'category', 'categories', 'products', 'breadcrumb'));
+        $cart = session('cart');
+
+        return view('category', compact('id', 'category', 'categories', 'products', 'breadcrumb', 'cart'));
     }
 }

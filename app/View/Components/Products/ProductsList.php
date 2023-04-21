@@ -13,7 +13,8 @@ class ProductsList extends Component
      * @return void
      */
     public function __construct(
-        public Collection $products
+        public Collection $products,
+        public array $cart
     )
     {
         //

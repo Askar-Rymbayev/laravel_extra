@@ -10,7 +10,7 @@
 
 @section('content')
     <h3>{{ $category->title }}</h3>
-    <x-products.products-list :$products/>
+    <x-products.products-list :$products :$cart/>
 @endsection
 
 
