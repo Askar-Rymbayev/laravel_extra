@@ -16,13 +16,22 @@ class CartController extends Controller
 
         $fields = $request->validate($validateRules);
 
-        $this->storeProductInCart($request, $product, $fields);
+        $this->storeProductInCart($product, $fields);
 
         return back();
     }
 
-    public function storeProductInCart(Request $request, $product, $fields)
+    public function storeProductInCart($product, $fields)
     {
+        if ($product->type == 'pizza') {
+            if (!key_exists('fillings', $fields)) {
+                $fields['fillings'] = [];
+            }
+            if (!key_exists('sideboard', $fields)) {
+                $fields['sideboard'] = 0;
+            }
+        }
+
         $cart = [];
         if (session()->has('cart')) {
             $cart = session('cart');
@@ -32,22 +41,32 @@ class CartController extends Controller
             $fields['count'] = 1;
             $cart[$product->id][] = $fields;
         } else {
-            foreach ($cart[$product->id] as $rows) {
+            $exists = false;
+            foreach ($cart[$product->id] as &$rows) {
                 $result = array_udiff_assoc($fields, $rows, function ($a, $b) {
                     if ($a == $b) {
                         return 0;
                     }
                     return ($a > $b) ? 1 : -1;
                 });
-                if (!empty($result)) {
+                if (empty($result)) {
+                    $rows['count']++;
+                    $exists = true;
                 }
+            }
+            if (!$exists) {
+                $fields['count'] = 1;
+                $cart[$product->id][] = $fields;
             }
         }
 
-        // что здесь в логике есть проблема
-        // в след уроке объясню в чём проблема
-
         session(['cart' => $cart]);
+    }
+
+    private function udiffAssoc($fields, $rows)
+    {
+        $keys = array_merge(array_keys($fields), array_keys($rows));
+        dd($keys);
     }
 
     private function createValidateRules(Request $request, $product)
@@ -95,5 +114,21 @@ class CartController extends Controller
         }
 
         return $validateRules;
+    }
+
+    public function show()
+    {
+        //подсчёт стоимости каждой пиццы
+        //вытащить все данные из json блюда
+        $cart = session('cart');
+
+        foreach ($cart as $productId => $productParams) {
+            $product = Product::find($productId);
+            foreach ($productParams as $productParam) {
+
+            }
+        }
+
+        return view('cart');
     }
 }

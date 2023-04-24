@@ -42,9 +42,7 @@
         @endif
 
     </div>
-    <div class="card-footer d-flex justify-content-between">
-        {{ $product->price }}
-
+    <div class="card-footer d-flex justify-content-end">
         <button class="btn btn-outline-secondary btn-sm" role="button">Добавить</button>
     </div>
 </form>

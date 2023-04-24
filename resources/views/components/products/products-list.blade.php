@@ -1,17 +1,5 @@
 <div class="row">
     <div class="col">
-        <div class="alert alert-warning" role="alert">
-            <pre>
-            @php
-                print_r($cart);
-            @endphp
-            </pre>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col">
         @foreach($errors->all() as $error)
             <div class="alert alert-danger" role="alert">
                 {{ $error }}

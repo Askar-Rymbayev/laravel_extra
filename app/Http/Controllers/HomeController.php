@@ -69,7 +69,7 @@ class HomeController extends Controller
             ]
         ];
 
-        $cart = session('cart');
+        $cart = session('cart', []);
 
         return view('category', compact('id', 'category', 'categories', 'products', 'breadcrumb', 'cart'));
     }
