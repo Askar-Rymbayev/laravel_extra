@@ -33,6 +33,9 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Контакты</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ route('cart.show') }}">Корзина</a>
+                </li>
             </ul>
         </div>
     </div>

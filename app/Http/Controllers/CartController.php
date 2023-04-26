@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -49,11 +50,15 @@ class CartController extends Controller
                     }
                     return ($a > $b) ? 1 : -1;
                 });
+                // если пусто, то такое блюдо есть в корзине
+                // просто увеличиваем count
                 if (empty($result)) {
                     $rows['count']++;
                     $exists = true;
                 }
             }
+            // блюдо есть в корзине, но именно этого варианта параметров (моцарелла, сырный бортик и тп.) нет
+            // поэтому добавляем в корзину текущие параметры
             if (!$exists) {
                 $fields['count'] = 1;
                 $cart[$product->id][] = $fields;
@@ -61,12 +66,6 @@ class CartController extends Controller
         }
 
         session(['cart' => $cart]);
-    }
-
-    private function udiffAssoc($fields, $rows)
-    {
-        $keys = array_merge(array_keys($fields), array_keys($rows));
-        dd($keys);
     }
 
     private function createValidateRules(Request $request, $product)
@@ -118,17 +117,57 @@ class CartController extends Controller
 
     public function show()
     {
-        //подсчёт стоимости каждой пиццы
-        //вытащить все данные из json блюда
-        $cart = session('cart');
+        $categories = Category::with('subcategories')->whereNull('parent_id')->get();
+        $cart = [];
+        $products = collect();
+        if (session()->has('cart')) {
+            $cart = session('cart');
 
-        foreach ($cart as $productId => $productParams) {
-            $product = Product::find($productId);
-            foreach ($productParams as $productParam) {
+            $ids = array_keys($cart);
+            $products = Product::whereIn('id', $ids)->get();
 
+            foreach ($cart as $productId => &$productParams) {
+                $product = $products->find($productId);
+                $productFields = $product->fields;
+
+                foreach ($productParams as &$params) {
+                    $params['total_sum'] = 0;
+                    switch ($product->type) {
+                        case 'pizza':
+                            $params['ingredients'] = 'Размер: ' . $params['size'] . ' см, ';
+                            $params['ingredients'] .= ($params['dough'] == 1 ? 'традиционное' : 'тонкое') . ' тесто';
+                            if ($params['sideboard']) {
+                                $params['ingredients'] .= ', сырный бортик';
+                            }
+
+                            $params['total_sum'] += $productFields['sizes'][$params['size']];
+                            $params['total_sum'] += $params['sideboard'] == 1 ? 900 : 0;
+                            if (key_exists('fillings', $params)) {
+                                foreach ($params['fillings'] as $fillingIndex) {
+                                    if (key_exists($fillingIndex, $productFields['fillings'])) {
+                                        $params['ingredients'] .= ', ' . $productFields['fillings'][$fillingIndex]['title'];
+                                        $params['total_sum'] += $productFields['fillings'][$fillingIndex]['price'];
+                                    }
+                                }
+                            }
+                            $params['total_sum'] *= $params['count'];
+                            break;
+                    }
+                }
             }
         }
 
-        return view('cart');
+        $breadcrumb = [
+            [
+                'url' => route('home'),
+                'title' => 'Главная'
+            ],
+            [
+                'url' => false,
+                'title' => 'Корзина'
+            ]
+        ];
+
+        return view('cart', compact('cart', 'categories', 'breadcrumb', 'products'));
     }
 }
